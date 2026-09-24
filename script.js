@@ -1,29 +1,37 @@
-function login() {
+function downloadPdf() {
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const firstName = document.getElementById("firstname").value;
+    const lastName = document.getElementById("lastname").value;
+    const company = document.getElementById("company").value;
+    const email = document.getElementById("email").value;
 
-    // CHANGE THESE TO YOUR OWN CREDENTIALS
-    const correctUsername = "admin";
-    const correctPassword = "Welcome123";
-
-    if (username === correctUsername && password === correctPassword) {
-
-        document.getElementById("loginCard").style.display = "none";
-        document.getElementById("downloadCard").style.display = "block";
-
-        // Auto download
-        const link = document.createElement("a");
-link.href = "MULTI-LEVEL-INVERTER-ARCHITEKTUREN ONEPAGER ENG.pdf";
-link.download = "MULTI-LEVEL-INVERTER-ARCHITEKTUREN ONEPAGER ENG.pdf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-    } else {
-
-        document.getElementById("message").innerText =
-            "Incorrect username or password.";
-
+    if (!firstName || !lastName || !company || !email) {
+        alert("Please complete all fields.");
+        return;
     }
+
+    const formData = new FormData();
+
+    formData.append("entry.575272416", firstName);
+    formData.append("entry.1950660787", lastName);
+    formData.append("entry.952978449", company);
+    formData.append("entry.1269496819", email);
+
+    fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSdm8ZoiewAj4hRJ807AOkLm3sTmuyKQdlcYxrzMRztlyCwbDg/formResponse",
+        {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+        }
+    );
+
+    const link = document.createElement("a");
+
+    link.href = "MULTI-LEVEL-INVERTER-ARCHITEKTUREN ONEPAGER ENG.pdf";
+    link.download = "MULTI-LEVEL-INVERTER-ARCHITEKTUREN ONEPAGER ENG.pdf";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
