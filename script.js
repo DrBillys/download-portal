@@ -1,5 +1,6 @@
 function downloadPdf() {
-
+    alert("JavaScript is working!");
+}
     const firstName = document.getElementById("firstname").value;
     const lastName = document.getElementById("lastname").value;
     const company = document.getElementById("company").value;
