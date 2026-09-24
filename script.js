@@ -5,16 +5,13 @@ function downloadPdf() {
     const company = document.getElementById("company").value;
     const email = document.getElementById("email").value;
 
-    alert(
-        "Sending:\n\n" +
-        firstName + "\n" +
-        lastName + "\n" +
-        company + "\n" +
-        email
-    );
+    if (!firstName || !lastName || !company || !email) {
+        alert("Please complete all fields.");
+        return;
+    }
 
     fetch(
-        "https://script.google.com/macros/s/AKfycbz3pTOd8QhUKqSCXEFj4nRox05oY3O3owcZw41yfsoUFabrovUR-QGcHgEP0bFgNpuYbA/exec",
+        "PASTE YOUR NEW APPS SCRIPT URL HERE",
         {
             method: "POST",
             mode: "no-cors",
@@ -29,5 +26,14 @@ function downloadPdf() {
         }
     );
 
-    alert("Request sent!");
+    const link = document.createElement("a");
+
+    link.href = "MULTI-LEVEL-INVERTER-ARCHITEKTUREN ONEPAGER ENG.pdf";
+    link.download = "MULTI-LEVEL-INVERTER-ARCHITEKTUREN ONEPAGER ENG.pdf";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    alert("Thank you. Your download has started.");
 }
