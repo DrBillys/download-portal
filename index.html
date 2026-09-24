@@ -3,34 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Portal</title>
+    <title>TWT Download Portal</title>
 
-    style.css
+    <link.css
 </head>
 <body>
 
 <div class="container">
 
-    <img src="04_TWT_LOGO_WHITE.png" class="logo"id="loginCard">
-        <h1>Document Portal</h1>
-        <p>Sign in to access the document.</p>
+    <div class="card">
 
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
+        <h1>TWT Download Portal</h1>
 
-        <button onclick="login()">Sign In</button>
+        <p>
+            Please provide your details to access the document.
+        </p>
 
-        <p id="message"></p>
-    </div>
+        <input
+            type="text"
+            id="firstname"
+            placeholder="First Name"
+        >
 
-    <div class="card" id="downloadCard" style="display:none;">
-        <h1>Access Granted ✅</h1>
+        <input
+            type="text"
+            id="lastname"
+            placeholder="Last Name"
+        >
 
-        <p>Your download should start automatically.</p>
+        <input
+            type="text"
+            id="company"
+            placeholder="Company"
+        >
 
-        <ULTI-LEVEL-INVERTER-ARCHITEKTUREN ONEPAGER ENG.pdf
-            <button>Download Again</button>
-        </a>
+        <input
+            type="email"
+            id="email"
+            placeholder="Business Email"
+        >
+
+        <button onclick="downloadPdf()">
+            Download PDF
+        </button>
+
     </div>
 
 </div>
@@ -39,5 +55,3 @@
 
 </body>
 </html>
-
-
